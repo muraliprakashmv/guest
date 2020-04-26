@@ -1,0 +1,14 @@
+{% extends 'header_signin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if msg %}
+
+<h2>{{ msg }}</h2>
+
+{% endif %}
+
+<form action="" method="post" novalidate> {% csrf_token %}
+{{ form | crispy }}
+<input type="submit" value="Signin">
+</form>
+{% endblock %}

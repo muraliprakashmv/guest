@@ -1,0 +1,63 @@
+{% extends 'header.html' %}
+<h1>{% block title %}View Guest{% endblock %}</h1>
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th>Joining Date</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for row in data %}
+      <tr>
+        <td>{{ row.first_name }} {{ row.middle_name }} {{ row.last_name }}</td>
+        <td>{{ row.email }}</td>
+        <td>{{ row.address }}</td>
+        {% if row.gender == 'm' %}
+        <td>Male</td>
+        {% else %}
+        <td>Female</td>
+        {% endif %}
+
+        {% if row.is_active == True %}
+        <td><button type="button" class="btn btn-success">Active</button> </td>
+        {% else %}
+        <td><button type="button" class="btn btn-danger">Deactived</button></td>
+      {% endif %}
+      <td>{{ row.joining_date }}</td>
+
+          <td>
+              <span><a href="update/{{ row.id }}" class="btn btnprimary btn-sm">UPDATE</a> </span>
+              <span><a href="view/{{ row.id }}" class="btn btnprimary btn-sm">VIEW</a> </span>
+              <span><a href="delete/{{ row.id }}" class="btn btnprimary btn-sm delete">DELETE</a> </span>
+          </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+<script>
+
+    $(document).ready(function(){
+
+        $('.delete').click(function(){
+            if(confirm('are you sure to delete this item?')){
+            return true;
+            }
+            else
+            {
+            return false;
+            }
+         });
+    });
+</script>
+
+{% endblock %}
