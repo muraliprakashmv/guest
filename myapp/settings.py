@@ -28,7 +28,7 @@ DEBUG = True
 CRISPY_TEMPLATE_PACK="bootstrap3"
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
