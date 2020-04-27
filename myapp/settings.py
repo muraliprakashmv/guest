@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9xfv4vh*%wx(o9sz#sae!(2(lbz3&1qp-w1ijdr)6es0fxbm$m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 CRISPY_TEMPLATE_PACK="bootstrap3"
 
@@ -135,5 +135,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,"static"),
-                        '/root/gms_django/guest/static',
+                        '/root/gms_django/guest/static/',
                                  )
