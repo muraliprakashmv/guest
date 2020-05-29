@@ -84,17 +84,19 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'gms',
+        'ENGINE': 'mysql.connector.django',
         'USER': 'root',
         'PASSWORD': 'Elsagata@123',
-        'HOST': 'localhost',
-        'PORT': '',
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
